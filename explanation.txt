@@ -1,0 +1,37 @@
+
+
+1. The `Game` class represents our game and encapsulates its functionality.
+
+2. In the constructor of the `Game` class, the game window is created using `sf::RenderWindow`, with a size of 800x600 pixels and a title of "S-G-S Game Window".
+
+3. The background image is loaded from the file "background.jpg" using `backgroundTexture.loadFromFile("background.jpg")`. If the loading fails, you can add error handling code here.
+
+4. The `background` sprite is created using `sf::Sprite` and its texture is set to the loaded `backgroundTexture`. This sprite will be used to display the background image.
+
+5. The background music is loaded from the file "music.wav" using `backgroundMusic.openFromFile("music.wav")`. If the loading fails, you can add error handling code here.
+
+6. `backgroundMusic.setLoop(true)` sets the music to loop continuously.
+
+7. `backgroundMusic.play()` starts playing the background music.
+
+8. The `run` function represents the game loop. It keeps running until the game window is closed.
+
+9. Inside the game loop, `processEvents` is called to handle events such as window closure. It checks for events using `window.pollEvent(event)` and if the event type is `sf::Event::Closed`, the window is closed using `window.close()`.
+
+10. After processing events, the `render` function is called. It clears the window using `window.clear()` to prepare for drawing.
+
+11. `window.draw(background)` is used to draw the background sprite onto the window. This displays the background image.
+
+12. If you have any game elements or objects, you can draw them after drawing the background.
+
+13. Finally, `window.display()` is called to update the window and make the rendered content visible.
+
+14. The `processEvents` and `render` functions are private member functions of the `Game` class. They encapsulate the event processing and rendering logic.
+
+15. In the `main` function, an instance of the `Game` class named `game` is created.
+
+16. `game.run()` is called to start the game loop.
+
+17. The program exits gracefully by returning 0 from the `main` function.
+
+This code sets up a game window, loads a background image, plays background music, and provides a game loop for event handling and rendering. It forms the basic structure of a game and can be expanded upon to include more game logic and elements.
