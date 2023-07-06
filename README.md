@@ -21,3 +21,14 @@ To compile code write: " g++ main.cpp -o game -lsfml-graphics -lsfml-window -lsf
 ![Screenshot from 2023-07-07 00-38-34](https://github.com/BitsadzeL/SFML-Shoot-the-gap-IBSU-/assets/75274431/62ef6bf3-bb69-445f-8da6-32a6ceeabc9a)
 ![Screenshot from 2023-07-07 00-38-40](https://github.com/BitsadzeL/SFML-Shoot-the-gap-IBSU-/assets/75274431/91ec15ab-f2da-4c6f-9ce5-ae258d568cb2)
 ![Screenshot from 2023-07-07 00-39-02](https://github.com/BitsadzeL/SFML-Shoot-the-gap-IBSU-/assets/75274431/9bcd7e8c-a91a-448b-b32b-29b97dc587df)
+
+
+
+Idea of the Game: S-G-S as  Staro(staropolska) Gap  Shooter.
+
+We wanted ro rectreate one of the old polish games:
+![image](https://github.com/DachiBR/CPP-SFML-Project/assets/75274431/c4ff6a03-4280-46f6-a5fb-c2ad4d341e82)
+
+In this game players shoot the ball through the gap, so our game idea was inspired by this old polish game.
+
+
