@@ -182,7 +182,7 @@ private:
     int score;
     float bulletSpeed;
 public:
-    Game() : window(sf::VideoMode(SCREENX, SCREENY), "Go lets play") {
+    Game() : window(sf::VideoMode(SCREENX, SCREENY), "S-G-S") {
         window.setFramerateLimit(60);
 
         player = Player(50, 50, sf::Color::Blue, sf::Vector2f(100, 0));
