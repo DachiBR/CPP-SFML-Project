@@ -1,10 +1,19 @@
+//https://subscription.packtpub.com/book/game-development/9781785287343/1/ch01lvl1sec12/basics-of-sfml-drawing
+//https://www.sfml-dev.org/documentation/2.5.1/classsf_1_1RectangleShape.php
+//https://stackoverflow.com/questions/50238849/sfml-set-the-same-size-to-multiple-shapes (implementation of this)
+//And also the whole code is nout ours. When we encountered some errors or got stuck while writing functions, we asked ChatGPT 
+// and it suggested us solution in theoretical or code way.
+// Shoot the bullet, moving the player and check the collision is among them.
+//OOP model and game idea is ours :)
+
+
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
-#define SCREENX 1600
-#define SCREENY 1200
+#define SCREENX 800
+#define SCREENY 600
 
 
 class Transformable {
