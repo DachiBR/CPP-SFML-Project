@@ -1,11 +1,10 @@
-//Used chatGPT in the process of making this game, whole code is not ours :)
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
-#define SCREENX 1600
-#define SCREENY 1200
+#define SCREENX 800
+#define SCREENY 600
 
 
 class Transformable {
@@ -15,13 +14,13 @@ public:
     virtual void move() {};
     virtual void draw() {};
     virtual void update() {};
-    void setPosition( sf::Vector2f& position) {shape.setPosition(position);}
+    void setPosition(sf::Vector2f& position) { shape.setPosition(position); }
 
-    const sf::Vector2f& getPosition()  {return shape.getPosition();}
+    const sf::Vector2f& getPosition() { return shape.getPosition(); }
 
-    sf::RectangleShape& getShape() {return shape;}
+    sf::RectangleShape& getShape() { return shape; }
 
-    const sf::RectangleShape& getShape() const {return shape;}
+    const sf::RectangleShape& getShape() const { return shape; }
 
 
 };
@@ -40,17 +39,17 @@ private:
 public:
     Bullet(float sizeX, float sizeY, sf::Color color, float speed) : Figure(sizeX, sizeY, color), velocity(speed, 0.0f) {}
 
-    void move() {shape.move(velocity);}
+    void move() { shape.move(velocity); }
 
-    bool operator==(const Bullet& other) const {return shape.getPosition() == other.shape.getPosition() && velocity == other.velocity;}
+    bool operator==(const Bullet& other) const { return shape.getPosition() == other.shape.getPosition() && velocity == other.velocity; }
 
 
 };
 
-class Player : public Figure{
+class Player : public Figure {
 public:
     Player() : Figure(0, 0, sf::Color::Transparent) {};
-    Player(float sizeX, float sizeY, sf::Color color, const sf::Vector2f& position) : Figure(sizeX, sizeY, color) {shape.setPosition(position);}
+    Player(float sizeX, float sizeY, sf::Color color, const sf::Vector2f& position) : Figure(sizeX, sizeY, color) { shape.setPosition(position); }
 };
 
 class Target : public Figure {
@@ -73,10 +72,10 @@ private:
             }
             else if (event.type == sf::Event::KeyPressed) {
                 if (event.key.code == sf::Keyboard::Space) {
-                        shootBullet();
+                    shootBullet();
                 }
                 else if (event.key.code == sf::Keyboard::Q) {
-                        quitGame();
+                    quitGame();
                 }
             }
         }
@@ -139,13 +138,13 @@ private:
             }
         }
 
-        
+
         for (const auto& collidedBullet : collidedBullets) {
             auto it = std::find(bullets.begin(), bullets.end(), collidedBullet);
             if (it != bullets.end())
                 bullets.erase(it);
         }
-        
+
     }
 
     void render() {
@@ -164,7 +163,6 @@ private:
         window.draw(scoreLine);
 
         if (gameOver) {
-            // Game over logic
             window.close();
         }
 
@@ -182,13 +180,13 @@ private:
     int score;
     float bulletSpeed;
 public:
-    Game() : window(sf::VideoMode(SCREENX, SCREENY), "S-G-S") {
+    Game() : window(sf::VideoMode(SCREENX, SCREENY), "Go lets play") {
         window.setFramerateLimit(60);
 
         player = Player(50, 50, sf::Color::Blue, sf::Vector2f(100, 0));
 
         target = Target(30, 70, sf::Color::Red, sf::Vector2f(600, 0));
-        
+
         for (float y = 0; y <= SCREENY; y += 100) {
             targets.push_back(Target(30, 70, sf::Color::Red, sf::Vector2f(600, y)));
         }
@@ -196,7 +194,7 @@ public:
         const float bulletSpeed = 5.0f;
         this->bulletSpeed = bulletSpeed;
 
-        direction = 1; 
+        direction = 1;
 
         gameOver = false;
         score = 0;
@@ -206,18 +204,13 @@ public:
         scoreLine.setPosition(630, 0);
     }
 
-    void run() {
-        try {
-            while (window.isOpen()) {
-                processEvents();
-                update();
-                render();
-            }
-            std::cout << "Your Score is: " <<score << std::endl;
+    void run(){
+        while (window.isOpen()) {
+            processEvents();
+            update();
+            render();
         }
-        catch (const std::exception& e) {
-            std::cerr << "Exception occurred: " << std::endl;
-        }
+        std::cout << "Your Score is: " << score << std::endl;
     }
 
 
